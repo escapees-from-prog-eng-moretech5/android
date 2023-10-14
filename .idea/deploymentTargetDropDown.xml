@@ -3,9 +3,25 @@
   <component name="deploymentTargetDropDown">
     <value>
       <entry key="app">
-        <State />
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\argra\.android\avd\Pixel_7_API_34.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2023-10-14T02:42:36.944697Z" />
+        </State>
       </entry>
       <entry key="core.network">
+        <State />
+      </entry>
+      <entry key="features.auth">
         <State />
       </entry>
     </value>
