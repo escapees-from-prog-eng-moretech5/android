@@ -1,19 +1,15 @@
 package dev.argraur.moretech.auth.repository
 
+import android.util.Log
 import dev.argraur.moretech.auth.model.AuthData
 import dev.argraur.moretech.auth.model.toRegular
 import dev.argraur.moretech.database.dao.AuthDao
-import dev.argraur.moretech.database.model.AuthDataEntity
 import dev.argraur.moretech.network.AuthNetworkDataSource
-import dev.argraur.moretech.network.model.LoginRequest
-import dev.argraur.moretech.network.retrofit.AuthService
 import dev.argraur.moretech.network.token.TokenStorage
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 import javax.inject.Inject
 
 class OfflineFirstAuthRepository @Inject constructor(
@@ -30,21 +26,35 @@ class OfflineFirstAuthRepository @Inject constructor(
     }
 
     override suspend fun login(phoneNumber: String, password: String): Boolean {
-        val result = authNetworkDataSource.login(phoneNumber, password)
-        if (result.token != "") {
-            authDao.insert(authDataEntity = AuthDataEntity(0, phoneNumber, result.token))
-            refreshToken()
-            return true
+        try {
+            val result = authNetworkDataSource.login(phoneNumber, password)
+            if (result.token != "") {
+                withContext(Dispatchers.IO) {
+                    authDao.insert(authDataEntity = result.toRegular().toEntity())
+                }
+                refreshToken()
+                return true
+            }
+        } catch (e: Exception) {
+            Log.e(this::class.simpleName!!, "Failed to login due to network exception")
         }
         return false
     }
 
-    override suspend fun register(phoneNumber: String, password: String): Boolean {
-        val result = authNetworkDataSource.register(phoneNumber, password)
-        if (result.token != "") {
-            authDao.insert(authDataEntity = AuthDataEntity(0, phoneNumber, result.token))
-            refreshToken()
-            return true
+    override suspend fun register(phoneNumber: String, password: String, name: String): Boolean {
+        Log.i("AuthRepository", "Registering...")
+        try {
+            val result = authNetworkDataSource.register(phoneNumber, password, name)
+            Log.i("AuthRepository", "result: ${result}")
+            if (result.token != "") {
+                withContext(Dispatchers.IO) {
+                    authDao.insert(authDataEntity = result.toRegular().toEntity())
+                }
+                refreshToken()
+                return true
+            }
+        } catch (e: Exception) {
+            Log.e(this::class.simpleName!!, "Failed to login due to network exception: ${e.message}")
         }
         return false
     }

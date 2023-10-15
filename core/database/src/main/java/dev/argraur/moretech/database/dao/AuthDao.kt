@@ -5,7 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import dev.argraur.moretech.database.model.AuthDataEntity
+import dev.argraur.moretech.database.model.auth.AuthDataEntity
 
 @Dao
 interface AuthDao {

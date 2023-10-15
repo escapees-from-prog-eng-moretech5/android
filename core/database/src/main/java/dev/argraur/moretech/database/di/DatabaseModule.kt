@@ -15,5 +15,6 @@ class DatabaseModule {
     @Provides
     fun provideDatabase(@ApplicationContext context: Context) : MORETechDatabase =
         Room.databaseBuilder(context, MORETechDatabase::class.java, "moretech-db")
+            .fallbackToDestructiveMigration()
             .build()
 }

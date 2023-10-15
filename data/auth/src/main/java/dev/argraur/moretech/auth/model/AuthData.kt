@@ -1,12 +1,18 @@
 package dev.argraur.moretech.auth.model
 
-import dev.argraur.moretech.database.model.AuthDataEntity
-import dev.argraur.moretech.network.model.NetworkAuthData
+import dev.argraur.moretech.database.model.auth.AuthDataEntity
+import dev.argraur.moretech.database.model.auth.UserEntity
+import dev.argraur.moretech.network.model.LoginResponse
+import dev.argraur.moretech.network.model.RegisterResponse
 
 data class AuthData(
-    val phoneNumber: String,
-    val token: String
-)
-
-fun AuthDataEntity.toRegular() = AuthData(this.phoneNumber, this.token)
-fun NetworkAuthData.toRegular(phoneNumber: String) = AuthData(phoneNumber, this.token)
+    val token: String,
+    val user: User
+) {
+    fun toEntity(): AuthDataEntity {
+        return AuthDataEntity(0, token, UserEntity(user.number, user.name))
+    }
+}
+fun AuthDataEntity.toRegular() = AuthData(token, user.toRegular())
+fun RegisterResponse.toRegular() = AuthData(token, user.toRegular())
+fun LoginResponse.toRegular() = AuthData(token, User("",""))

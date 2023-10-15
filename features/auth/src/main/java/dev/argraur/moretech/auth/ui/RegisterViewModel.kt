@@ -1,5 +1,6 @@
 package dev.argraur.moretech.auth.ui
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.HiltAndroidApp
@@ -19,6 +20,7 @@ enum class RegisterState {
 data class RegisterUiState(
     val phoneNumber: String = "",
     val password: String = "",
+    val name: String = "",
     val repeatPassword: String = "",
     val registerState: RegisterState = RegisterState.IDLE
 )
@@ -42,12 +44,17 @@ class RegisterViewModel @Inject constructor(
         }
     }
 
+    fun setName(name: String) {
+        _uiState.update {
+            it.copy(name = name)
+        }
+    }
+
     fun setRepeatPassword(password: String) {
         _uiState.update {
             it.copy(repeatPassword = password, registerState = if (password != it.password) RegisterState.PASSWORDS_DONT_MATCH else RegisterState.IDLE)
         }
     }
-
 
     fun register() {
         viewModelScope.launch {
@@ -61,7 +68,9 @@ class RegisterViewModel @Inject constructor(
                 _uiState.update { it.copy(registerState = RegisterState.LOADING) }
 
                 val result =
-                    registerUseCase.invoke(_uiState.value.phoneNumber, _uiState.value.password)
+                    registerUseCase.invoke(_uiState.value.phoneNumber, _uiState.value.password, _uiState.value.name)
+
+                Log.i("RegisterViewModel", "result: ${result}")
 
                 _uiState.update {
                     if (result) {
