@@ -11,15 +11,15 @@ class AtmItem(
         return LatLng(atm.latitude, atm.longitude)
     }
 
-    override fun getTitle(): String? {
+    override fun getTitle(): String {
         return atm.address
     }
 
-    override fun getSnippet(): String? {
+    override fun getSnippet(): String {
         return atm.address
     }
 
-    override fun getZIndex(): Float? {
+    override fun getZIndex(): Float {
         return 0f
     }
 }

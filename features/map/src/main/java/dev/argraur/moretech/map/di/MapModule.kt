@@ -3,7 +3,6 @@ package dev.argraur.moretech.map.di
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
 import com.google.maps.GeoApiContext
 import com.google.maps.model.LatLng
 import dagger.Module
@@ -11,9 +10,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dev.argraur.moretech.map.di.annotations.DataSet
 import dev.argraur.moretech.map.R
 import dev.argraur.moretech.map.di.annotations.ApplicationMetadata
+import dev.argraur.moretech.map.di.annotations.DataSet
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonArray
 import kotlinx.serialization.json.jsonObject

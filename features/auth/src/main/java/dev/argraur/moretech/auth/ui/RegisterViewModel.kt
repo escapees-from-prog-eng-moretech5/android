@@ -3,7 +3,6 @@ package dev.argraur.moretech.auth.ui
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.argraur.moretech.auth.domain.RegisterUseCase
 import kotlinx.coroutines.flow.MutableStateFlow

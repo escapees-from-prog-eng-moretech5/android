@@ -6,14 +6,13 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.argraur.moretech.network.di.annotations.AuthInterceptorOkHttpClient
-import dev.argraur.moretech.network.di.annotations.NoInterceptorOkHttpClient
 import dev.argraur.moretech.network.retrofit.AtmService
 import dev.argraur.moretech.network.retrofit.AuthService
 import dev.argraur.moretech.network.retrofit.OfficeService
 import dev.argraur.moretech.network.utils.AuthInterceptor
 import kotlinx.serialization.json.Json
-import okhttp3.OkHttpClient
 import okhttp3.MediaType
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 
 private const val BASE_URL = "http://10.0.2.2:8080"

@@ -1,6 +1,5 @@
 package dev.argraur.moretech.database.model.office
 
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 

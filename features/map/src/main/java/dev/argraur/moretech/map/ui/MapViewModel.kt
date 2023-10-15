@@ -1,6 +1,5 @@
 package dev.argraur.moretech.map.ui
 
-import android.content.Context
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,11 +9,9 @@ import com.google.maps.model.DirectionsRoute
 import com.google.maps.model.LatLng
 import com.google.maps.model.TravelMode
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
-import dev.argraur.moretech.map.di.annotations.DataSet
-import dev.argraur.moretech.location.exceptions.NoPermissionException
 import dev.argraur.moretech.location.LocationProvider
 import dev.argraur.moretech.location.di.annotations.FakeProvider
+import dev.argraur.moretech.location.exceptions.NoPermissionException
 import dev.argraur.moretech.map.items.AtmItem
 import dev.argraur.moretech.map.items.OfficeItem
 import dev.argraur.moretech.offices.model.atm.Atm
@@ -24,8 +21,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.observeOn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

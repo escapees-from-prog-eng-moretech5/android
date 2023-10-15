@@ -8,7 +8,6 @@ import dev.argraur.moretech.auth.repository.AuthRepository
 import dev.argraur.moretech.auth.repository.OfflineFirstAuthRepository
 import dev.argraur.moretech.database.dao.AuthDao
 import dev.argraur.moretech.network.AuthNetworkDataSource
-import dev.argraur.moretech.network.token.TokenProvider
 import dev.argraur.moretech.network.token.TokenStorage
 
 @Module

@@ -13,9 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import dev.argraur.moretech.activitycore.ActivityProvider
 import dev.argraur.moretech.android.ui.MORETechApp
-import dev.argraur.moretech.android.ui.navigation.MORETechNavHost
 import dev.argraur.moretech.android.ui.theme.MORETechVTBMapTheme
-import dev.argraur.moretech.auth.ui.LoginScreen
 import dev.argraur.moretech.network.token.TokenProvider
 import javax.inject.Inject
 

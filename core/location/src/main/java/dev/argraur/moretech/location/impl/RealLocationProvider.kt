@@ -1,7 +1,6 @@
 package dev.argraur.moretech.location.impl
 
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
 import android.util.Log
@@ -12,7 +11,6 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import dev.argraur.moretech.activitycore.ActivityProvider
 import dev.argraur.moretech.location.LocationProvider
-import dev.argraur.moretech.location.exceptions.NoPermissionException
 import kotlinx.coroutines.suspendCancellableCoroutine
 import javax.inject.Inject
 import javax.inject.Singleton

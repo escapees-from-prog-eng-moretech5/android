@@ -11,15 +11,15 @@ class OfficeItem(
         return LatLng(office.latitude, office.longitude)
     }
 
-    override fun getTitle(): String? {
+    override fun getTitle(): String {
         return office.salePointName
     }
 
-    override fun getSnippet(): String? {
+    override fun getSnippet(): String {
         return office.address
     }
 
-    override fun getZIndex(): Float? {
+    override fun getZIndex(): Float {
         return 0f
     }
 }

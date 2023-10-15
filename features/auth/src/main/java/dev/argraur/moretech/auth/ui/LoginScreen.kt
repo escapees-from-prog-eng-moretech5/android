@@ -1,9 +1,5 @@
 package dev.argraur.moretech.auth.ui
 
-import android.graphics.drawable.Icon
-import android.util.Log
-import androidx.compose.foundation.interaction.Interaction
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize

@@ -9,7 +9,6 @@ import dev.argraur.moretech.network.token.TokenStorage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
-import java.lang.Exception
 import javax.inject.Inject
 
 class OfflineFirstAuthRepository @Inject constructor(
