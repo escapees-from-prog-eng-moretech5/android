@@ -1,6 +1,6 @@
 # MORE.Tech 5.0 Трек MOBILE - Android-приложение
 
-![Screenshot](https://github.com/escapees-from-prog-eng-moretech5/android/blob/master/Screenshot_20231015_053605.png?raw=true | width=100)
+<img src="https://github.com/escapees-from-prog-eng-moretech5/android/blob/master/Screenshot_20231015_053605.png?raw=true" alt="" width="200"
 
 Реализовано:
 * Вход
